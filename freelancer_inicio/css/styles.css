@@ -1,0 +1,160 @@
+:root{  /*Atajo a colores predefinidos*/
+    --blanco: #ffffff;
+    --negro: #212121;
+    --primario: #ffc107;
+    --secundario: #0097a7;
+    --gris: #757575;
+    --grisClaro: #dfe9f3;
+}
+
+/* Globales */
+html{
+    font-size: 62.5%;   /* Establece el tamaño base de fuente en 62.5% para facilitar cálculos */ 
+    box-sizing: border-box; /* Define el modelo de caja para incluir padding y border en el ancho y alto */
+}
+*, *:before, *:after{
+    box-sizing: inherit;     /* Hereda el modelo de caja border-box a todos los elementos y pseudoelementos */
+    /** Solución a problemas de padding y weight **/
+} 
+body{
+    background-image: linear-gradient(to top, var(--grisClaro) 0%, var(--blanco) 100%); /* Degradado (de abajo hacia arriba, de X color, a Y color) */
+    font-size: 16px;    /* Establece el tamaño de fuente base */
+    /**-- 1rem = 21px--**/
+    font-family: "Krub", sans-serif;    /* Define la familia de fuentes */
+}
+.contenedor{
+    max-width: 120rem;  /* Define el ancho máximo del contenedor */
+    margin: 0 auto; /* Centra el contenedor horizontalmente */
+    /*
+    margin-top: 0;
+    margin-right: auto;
+    margin-bottom: 0;
+    margin-left: auto;
+    */
+
+    /*
+    margin: 0 auto 0 auto;
+    */   
+ }
+ .boton{
+    background-color: var(--secundario);
+    color: var(--blanco);
+    padding: 1rem 3rem;
+    margin-top: 1rem;
+    font-size: 2rem;
+    text-decoration: none;
+    text-transform: uppercase; /* Convierte a mayúsculas el texto */
+    font-weight: bold; /* Estilo de la letra*/
+    border-radius: 0.5rem; /* Borde del bontón */
+    width: 90%;
+    text-align: center; /* Alineación hacia el centro*/
+ }
+ @media (min-width: 768px) {
+    .boton{
+        width:auto
+    }
+ }
+.sombra{
+    box-shadow: 0px 5px 15px 0px rgba(112,112,112,0.48);    /* Box Shadow de cssmatic.com y caniuse.com */
+    background-color: var(--blanco);
+    padding: 2rem;  
+    border-radius: 1rem;    /* Esquinas redondeadas */
+}
+
+ /* Tipografía */
+h1{
+    font-size: 3.8rem;  /* Establece el tamaño de fuente para h1 */
+}
+h2{
+    font-size: 2.8rem;  /* Establece el tamaño de fuente para h2 */
+}
+h3{
+    font-size: 1.8rem;  /* Establece el tamaño de fuente para h3 */
+}
+h1, h2, h3{
+    text-align: center; /* Centra los encabezados h1, h2 y h3 */
+}
+
+/* Títulos */
+h1 span{
+    font-size: 2rem;    /* Define el tamaño de fuente para spans dentro de h1 */
+ }
+
+ /* Navegación principal */
+.nav-bg{
+    background-color: var(--secundario);    /* Establece el color de fondo del navbar */
+ }
+.navegacion-principal{
+    display: flex;  
+    flex-direction: column;  /* Organiza los elementos del navbar en una columna */
+ }
+ @media (min-width: 480px){      /*Resolución para celulares*/
+     
+ }
+ @media (min-width: 768px){      /*Resolución para tablet*/
+     .navegacion-principal{
+      flex-direction: row;  /* Organiza los elementos del navbar en una fila */
+      justify-content: space-evenly;  /* Distribuye uniformemente los elementos del navbar */
+      /** Parte del paquete flex **/
+     }
+ }
+ @media (min-width: 1140px){     /*Resolución para laptop*/
+     
+ }
+ @media (min-width: 1400px){
+     
+ }
+.navegacion-principal a{
+    display: block; /* Convierte los enlaces del navbar en bloques */
+    text-align: center; /* Centra el texto dentro de los enlaces */
+    color: var(--blanco);   /* Establece el color de texto */
+    text-decoration: none;  /* Elimina el subrayado de los enlaces */
+    font-size: 2rem;    /* Establece el tamaño de fuente */
+    font-weight: bold;  /* Establece el estilo de la fuente */
+    padding: 1rem;  /* Añade relleno alrededor del texto */
+ }
+.navegacion-principal a:hover{
+   background-color: var(--primario);   /* Cambia el color de fondo al pasar el ratón */
+   color: var(--negro); /* Cambia el color de texto al pasar el ratón */
+ }
+
+ /* Panel con foto */
+.hero{
+    background-image: url(../img/hero.jpg); /* Establece la imagen de fondo */
+    background-repeat: no-repeat;   /* Evita la repetición de la imagen de fondo */
+    background-size: cover; /* Escala la imagen de fondo para cubrir completamente */
+    height: 45rem;  /* Establece la altura del elemento */
+    position: relative; /* Establece la posición relativa */
+    margin-bottom: 2rem;
+}
+.contenido-hero{
+    padding: 2rem;  /* Añade relleno alrededor del contenido */
+    position: absolute; /* Establece la posición absoluta */
+    background-color: rgb(0, 0, 0, 0.5);    /* Establece el color de fondo con transparencia */
+    width: 100%;    /* Establece el ancho al 100% del contenedor padre */
+    height: 100%;    /* Establece la altura al 100% del contenedor padre */
+
+    display: flex;  /* Permite el uso de flexbox */
+    /* Flexbox permite crear diseños más flexibles y dinámicos, el contenido crece automáticamente, una sola dimensión (row/column) */
+    flex-direction: column; /* Organiza los elementos en una columna */
+    align-items: center;    /* Centra los elementos horizontalmente */
+    justify-content: center;    /* Centra los elementos verticalmente */
+}
+.contenido-hero h2, .contenido-hero p{
+    color: var(--blanco);
+}
+.contenido-hero .ubicacion{
+    display: flex;  /* Permite el uso de flexbox */
+    align-items: flex-end;  /* Alinea los elementos en la parte inferior del contenedor */
+}
+
+/* Servicios */
+@media (min-width: 768px) {
+    .servicios{
+        display: grid; /* Permite el uso de css grid */
+        /* CSS Grid permite definir la ubicación y tamaño de los elementos, el contenido se agrupa dentro de un área definida, dos dimensiones */
+        grid-template-columns: repeat(3, 1fr) ; /*33.3% 33.3% 33.3% / 1fr 1fr 1fr*/ /* Define tamaño de columnas*/
+        /*grid: 20rem 80rem / 30rem 30rem;*/ /* columns / rows */
+    }
+}
+
